@@ -10,9 +10,15 @@ function MainLayout({ children }) {
     <div>
       <Topbar onToggle={() => setIsOpen(!isOpen)} />
 
-      <div className="row-span-2">{/* <Sidebar /> */}</div>
+      <div className="flex">
+        <Sidebar isOpen={isOpen} />
 
-      <main className="p-6 bg-gray-100 overflow-y-auto">{children}</main>
+        <main
+          className={`flex-1 min-h-screen pt-20 transition-all duration-300 ${isOpen ? "ml-64" : "ml-20"}`}
+        >
+          <div className="p-6">{children}</div>
+        </main>
+      </div>
     </div>
   );
 }
