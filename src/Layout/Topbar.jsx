@@ -1,80 +1,70 @@
-// src/Components/Layout/Topbar.jsx
+import { Menu, Search, Bell, ChevronDown } from "lucide-react";
+
 const Topbar = ({ onToggle }) => {
   return (
-    <header className="flex items-center justify-between px-6 bg-white border-b h-full">
-      <div className="flex items-center gap-4">
-        {/* Botón Hamburguesa */}
-        <button onClick={onToggle} className="p-2 hover:bg-gray-100 rounded-lg">
-          <svg
-            className="w-6 h-6 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        </button>
+    <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm">
+      <div className="px-4 py-2.5">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            {/* botton hamburguesa */}
+            <button
+              className="p-2 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors"
+              aria-label="Toggle Sidebar"
+              onClick={onToggle}
+            >
+              <Menu size={22} />
+            </button>
+            {/* botton hamburguesa */}
 
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold">
-            D
+            {/* texto dashboard */}
+            <div className="flex items-center gap-3">
+              <div className="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center shadow-md">
+                <span className="font-bold text-lg">D</span>
+              </div>
+              <h1 className="hidden sm:block text-xl font-bold text-gray-800 tracking-tight">
+                Dashboard
+              </h1>
+            </div>
           </div>
-          <span className="font-bold text-gray-800">Dashboard</span>
+          {/* texto dashboard */}
+
+          {/* centro que se adapta al centro */}
+          <div className="flex-1 max-w-lg mx-8 hidden md:block">
+            <div className="relative group">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+                <Search className="w-4 h-4 text-gray-400 group-focus-within:text-blue-500" />
+              </div>
+              <input
+                type="text"
+                className="bg-gray-50 border border-gray-200 text-gray-500 text-sm rounded-lg focus:ring-blue-500/20 focus:border-blue-500 block w-full pl-10 p-2.5 outline-none transition-all"
+                placeholder="Text..."
+              />
+            </div>
+          </div>
+          {/* centro que se adapta al centro */}
+          <div className="flex items-center gap-2">
+            {/* botton de notificaciones */}
+            <button className="p-2 text-gray-500 rounded-xl hover:bg-gray-100 relative">
+              <Bell size={20} />
+              <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white "></span>
+            </button>
+            {/* botton de notificaciones */}
+
+            {/* perfil de usuario */}
+            <div className="flex items-center gap-3 ml-2 pl-3 border-1 border-gray-200 cursor-pointer group ">
+              <div className="w-9 h-9 rounded-full bg-slate-100 border border-gray-200 flex items-center justify-center text-sm font-semibold text-slate-700">
+                JD
+              </div>
+              <ChevronDown
+                size={14}
+                className="text-gray-200 group-hover:text-gray-600 transition-transform group-hover:translate-y-0.5"
+              />
+            </div>
+            {/* perfil de usuario */}
+          </div>
         </div>
       </div>
-
-      {/* Buscador Central */}
-      <div className="relative w-96">
-        <span className="absolute inset-y-0 left-3 flex items-center text-gray-400">
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </span>
-        <input
-          type="text"
-          placeholder="Buscar..."
-          className="w-full bg-gray-50 border border-gray-200 rounded-md py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-        />
-      </div>
-
-      {/* Acciones Derecha */}
-      <div className="flex items-center gap-4">
-        <button className="text-gray-500 relative">
-          <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-          </svg>
-        </button>
-        <div className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full cursor-pointer hover:bg-gray-200">
-          <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-xs font-bold">
-            JD
-          </div>
-          <svg
-            className="w-4 h-4 text-gray-500"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
-      </div>
-    </header>
+    </nav>
   );
 };
 
