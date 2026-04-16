@@ -1,4 +1,11 @@
-import { Home, BarChart2, Users, Settings, HelpCircle } from "lucide-react";
+import {
+  Home,
+  Bell,
+  BarChart2,
+  Users,
+  Settings,
+  HelpCircle,
+} from "lucide-react";
 
 const Sidebar = ({ isOpen }) => {
   // Clases para el contenedor principal
@@ -16,13 +23,16 @@ const Sidebar = ({ isOpen }) => {
     <aside
       className={`
   fixed top-0 left-0 z-40 h-screen pt-20 
-  transition-all duration-300 ease-in-out
   bg-white border-r border-gray-200
-  overflow-x-hidden  {/* <-- Crucial para evitar la barra horizontal */}
-  ${isOpen ? "w-64" : "w-20"}
+  transition-all duration-300 ease-in-out
+  
+
+    w-[280px] ${isOpen ? "translate-x-0" : "-translate-x-full"} 
+    
+    md:translate-x-0 ${isOpen ? "md:w-64" : "md:w-20"}
 `}
     >
-      <div className="h-full px-3 pb-4 overflow-y-auto overflow-x-hidden bg-white">
+      <div className=" h-full px-3 pb-4 overflow-y-auto overflow-x-hidden bg-white">
         <ul className="space-y-2 font-medium">
           {menuItems.map((item, index) => (
             <li key={index}>
@@ -43,6 +53,25 @@ const Sidebar = ({ isOpen }) => {
               </a>
             </li>
           ))}
+
+          {/* la campana que solo aparecera en pc */}
+          <li className="sm:hidden">
+            <a
+              href="#"
+              className="flex items-center p-3 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-600 group transition-colors ms:hidden"
+            >
+              <div className="w-8 flex justify-center items-center flex-shrink-0">
+                <Bell size={20} />
+              </div>
+              {/* El texto desaparece en PC si está cerrado, pero en móvil siempre se intenta mostrar si está abierto */}
+              <span
+                className={`ml-3 whitespace-nowrap transition-opacity duration-300 
+                  ${!isOpen ? "lg:hidden opacity-0" : "opacity-100"}`}
+              >
+                notificaciones
+              </span>
+            </a>
+          </li>
         </ul>
 
         {/* Sección inferior opcional */}

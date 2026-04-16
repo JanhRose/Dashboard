@@ -18,8 +18,8 @@ const Topbar = ({ onToggle }) => {
 
             {/* texto dashboard */}
             <div className="flex items-center gap-3">
-              <div className="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center shadow-md">
-                <span className="font-bold text-lg">D</span>
+              <div className="hidden sm:flex bg-blue-600 text-white w-8 h-8 rounded-lg items-center justify-center shadow-md">
+                <span className="font-bold text-lg ">D</span>
               </div>
               <h1 className="hidden sm:block text-xl font-bold text-gray-800 tracking-tight">
                 Dashboard
@@ -44,7 +44,7 @@ const Topbar = ({ onToggle }) => {
           {/* centro que se adapta al centro */}
           <div className="flex items-center gap-2">
             {/* botton de notificaciones */}
-            <button className="p-2 text-gray-500 rounded-xl hover:bg-gray-100 relative">
+            <button className="hidden sm:flex p-2 text-gray-500 rounded-xl hover:bg-gray-100 relative">
               <Bell size={20} />
               <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white "></span>
             </button>

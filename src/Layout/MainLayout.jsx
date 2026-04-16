@@ -14,7 +14,7 @@ function MainLayout({ children }) {
         <Sidebar isOpen={isOpen} />
 
         <main
-          className={`flex-1 min-h-screen pt-20 transition-all duration-300 ${isOpen ? "ml-64" : "ml-20"}`}
+          className={`flex-1 min-h-screen pt-20 transition-all duration-300 ml-0 ${isOpen ? "md:ml-64" : "md:ml-20"}`}
         >
           <div className="p-6">{children}</div>
         </main>
