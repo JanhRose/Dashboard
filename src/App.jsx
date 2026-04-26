@@ -1,5 +1,5 @@
 import MainLayout from "./Layout/MainLayout";
-import Dashboard from "./Pages/dashboard";
+import Dashboard from "./Pages/Dashboard";
 
 function App() {
   return (
